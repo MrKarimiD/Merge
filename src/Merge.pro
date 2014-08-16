@@ -10,39 +10,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = kn2cssl
 TEMPLATE = app
-#CONFIG   += qt warn_on incremental link_prl
-#MAKEFILE_GENERATOR = UNIX
-#TARGET_PLATFORM  = unix
-#QMAKE_INCREMENTAL_STYLE = sublib
 QMAKE_CXXFLAGS += -std=c++11
-
-#CONFIG += debug
-#CONFIG   += release
-#DEFINES += QT_NO_DEBUG_OUTPUT
-
-#QMAKE_CXXFLAGS += --coverage
-#QMAKE_LFLAGS += --coverage
-
-#QMAKE_CFLAGS    -= -O2 -O1
-#QMAKE_CXXFLAGS  -= -O2 -O1
-##QMAKE_CFLAGS  += -O3 -m64
-##QMAKE_LFLAGS  += -O3 -m64
-#QMAKE_CFLAGS  += -O3
-#QMAKE_LFLAGS  += -O3
-#QMAKE_CXXFLAGS += -O3
-
-#QMAKE_CXXFLAGS += -O3
-#QMAKE_CXXFLAGS += -m64
-#QMAKE_CXXFLAGS += -pipe
-#QMAKE_CXXFLAGS += -mmmx -msse -msse2 -msse3 -mssse3 -msse4 -msse4.1 -msse4.2 -mpclmul # -mavx -mavx2 -maes -mfsgsbase -mrdrnd
-#QMAKE_CXXFLAGS += -mfpmath=sse
-#QMAKE_CXXFLAGS += -fargument-noalias-global
-#QMAKE_CXXFLAGS += -fomit-frame-pointer
-##QMAKE_CXXFLAGS += -fwhole-program #fail!
-#QMAKE_CXXFLAGS += -march=native
-#QMAKE_CXXFLAGS += -mtune=native
-
-#load(qt_config)
 
 DESTDIR = ../bin
 OBJECTS_DIR = ../tmp/.obj
@@ -51,7 +19,7 @@ RCC_DIR = ../tmp/.rcc
 UI_DIR = ../tmp/.ui
 
 unix:  LIBS += -lprotobuf
-
+include(../qextserialport-1.2rc/src/qextserialport.pri)
 INCLUDEPATH += ssl
 INCLUDEPATH += ssl/sslvision
 INCLUDEPATH += ssl/sslvision/messages

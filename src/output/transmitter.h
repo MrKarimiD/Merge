@@ -3,7 +3,7 @@
 
 #include <QObject>
 #include <QTimer>
-#include <QSerialPort>
+#include <QtExtSerialPort/qextserialport.h>
 #include <iostream>
 using namespace std;
 
@@ -27,7 +27,7 @@ public:
     FPSCounter fps;
 
 private:
-    QSerialPort _serialport;
+    QextSerialPort* serialport;
     QTimer _timer;
     bool _state;
     OutputBuffer* _buffer;
