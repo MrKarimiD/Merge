@@ -13,14 +13,7 @@ public:
     virtual int enterCondition();
 
 private:
-    int numberOfDef;
-    TacticGoalie*   tGolie;
-    TacticDefender* tDefenderLeft;
-    TacticDefender* tDefenderRight;
-    TacticDefender* tDefenderMid;
-    TacticStop* tStopMid;
-    TacticStop* tStopLeft;
-    TacticStop* tStopRight;
+
 };
 
 #endif // PLAYSTOP_H

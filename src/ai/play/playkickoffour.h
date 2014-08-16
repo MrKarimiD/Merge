@@ -11,18 +11,8 @@ public:
     virtual void execute();
     //virtual Tactic* getTactic(int id);
     virtual int enterCondition();
-    void setCanKick(bool ck) { _cankick=ck; }
 
 protected:
-    bool _cankick;
 
-    TacticGoalie*   tGolie;
-    TacticFixedPos* tFixedPosM;
-    TacticFixedPos* tFixedPosL;
-    TacticFixedPos* tFixedPosR;
-    TacticDefender* tDefenderLeft;
-    TacticDefender* tDefenderRight;
-    TacticDefender* tDefenderMid;
-    TacticAttacker* tAttacker;
 };
 #endif // PLAYKICKOFFOUR_H

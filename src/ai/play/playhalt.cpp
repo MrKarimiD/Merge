@@ -21,6 +21,5 @@ void PlayHalt::execute()
 
 Tactic* PlayHalt::getTactic(int id)
 {
-    if(!wm->isSim) return NULL;
-    return tHalt;
+
 }

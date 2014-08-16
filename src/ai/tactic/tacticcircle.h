@@ -9,12 +9,8 @@ class TacticCircle : public Tactic
 public:
     explicit TacticCircle(WorldModel *worldmodel, QObject *parent = 0);
     virtual RobotCommand getCommand();
-    void setCircle(Vector2D c, float r, Vector2D p) { center = c; radius = r; pointTo = p; }
 
 private:
-    Vector2D center;
-    float radius;
-    Vector2D pointTo;
 
 };
 

@@ -9,11 +9,9 @@ class TacticDefender : public Tactic
 public:
     explicit TacticDefender(WorldModel *worldmodel, QObject *parent = 0);
     virtual RobotCommand getCommand();
-    void setDefenderPos(int pos);
+
 private:
-    Vector2D GotoDefaultLoc(int total, int current);
-    int numberOfDefenders;
-    int position;
+
 };
 
 #endif // TACTICDEFENDER_H

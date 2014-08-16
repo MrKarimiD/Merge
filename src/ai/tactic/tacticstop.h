@@ -10,10 +10,9 @@ class TacticStop : public Tactic
 public:
     explicit TacticStop(WorldModel *worldmodel, QObject *parent = 0);
     virtual RobotCommand getCommand();
-    void setStopPosition(int pos);
 
 protected:
-    int position;
+
 };
 
 #endif // TACTICSTOP_H

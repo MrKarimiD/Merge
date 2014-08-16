@@ -13,8 +13,7 @@ public:
     virtual int enterCondition();
 
 private:
-    TacticGoalie* tGolie;
-    TacticCircle* tCircle;
+
 };
 
 #endif // PLAYTEST2_H

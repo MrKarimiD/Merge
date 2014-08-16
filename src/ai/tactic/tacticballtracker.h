@@ -9,10 +9,8 @@ class TacticBallTracker : public Tactic
 public:
     explicit TacticBallTracker(WorldModel *worldmodel, QObject *parent = 0);
     virtual RobotCommand getCommand();
-    void setFace(Vector2D face) {_face = face;}
 
 private:
-    Vector2D _face;
 
 };
 
