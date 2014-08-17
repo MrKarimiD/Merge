@@ -45,7 +45,6 @@ SOURCES +=	main.cpp \
     ssl/sslvision/messages/messages_robocup_ssl_geometry.pb.cc \
     ssl/sslvision/messages/messages_robocup_ssl_detection.pb.cc \
     ui/mainwindow.cpp \
-    ui/renderarea.cpp \
     util/fpscounter.cpp \
     ai/soccer.cpp \
     ssl/worldmodel.cpp \
@@ -109,7 +108,9 @@ SOURCES +=	main.cpp \
     ai/play/playtest2.cpp \
     ai/tactic/tacticfixedpos.cpp \
     ai/tactic/tactictechnical.cpp \
-    ai/tactic/tacticpenaltykicker.cpp
+    ai/tactic/tacticpenaltykicker.cpp \
+    filtersettings.cpp \
+    imageprocessing.cpp
 
 HEADERS  += \
     etc/settings.h \
@@ -130,7 +131,6 @@ HEADERS  += \
     ssl/sslvision/messages/messages_robocup_ssl_geometry.pb.h \
     ssl/sslvision/messages/messages_robocup_ssl_detection.pb.h \
     ui/mainwindow.h \
-    ui/renderarea.h \
     util/util.h \
     util/fpscounter.h \
     output/wpacket.h \
@@ -204,7 +204,9 @@ HEADERS  += \
     ai/play/playtest2.h \
     ai/tactic/tacticfixedpos.h \
     ai/tactic/tactictechnical.h \
-    ai/tactic/tacticpenaltykicker.h
+    ai/tactic/tacticpenaltykicker.h \
+    filtersettings.h \
+    imageprocessing.h
 
 FORMS    +=	ui/mainwindow.ui
 
@@ -215,3 +217,20 @@ OTHER_FILES += \
 RESOURCES += \
     resources.qrc
 
+LIBS += -lopencv_core \
+        -lopencv_highgui \
+        -lopencv_imgproc \
+        -lopencv_videostab \
+        -lopencv_video \
+        -lopencv_ts \
+        -lopencv_stitching \
+        -lopencv_superres \
+        -lopencv_photo \
+        -lopencv_objdetect \
+        -lopencv_nonfree \
+        -lopencv_ml \
+        -lopencv_legacy \
+        -lopencv_calib3d \
+        -lopencv_flann \
+        -lopencv_contrib \
+        -lopencv_features2d

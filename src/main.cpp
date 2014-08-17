@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 
     Soccer soccer;
 
-    MainWindow w(&soccer);
+    MainWindow w;
 
     bool gui = true;
     if(argc > 1)

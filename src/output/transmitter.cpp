@@ -2,15 +2,16 @@
 
 Transmitter::Transmitter(QString port, OutputBuffer* buffer, WorldModel *wm, QObject *parent) :
     QObject(parent),
-    serialport(),
+    serialport(serialport),
     _timer(this),
     _buffer(buffer),
     _wm(wm)
 {
     qDebug() << "Transmitter Initialization...";
-
+    serialport=new QextSerialPort();
     serialport->setPortName(port);
-    serialport->open(QIODevice::ReadWrite);
+    bool check=serialport->open(QIODevice::ReadWrite);
+    qDebug()<<"check:"<<check;
     serialport->setBaudRate(BAUD115200);
     serialport->setDataBits(DATA_8);
     serialport->setStopBits(STOP_1);
