@@ -5,8 +5,8 @@
 
 // global constants
 #define PLAYERS_MAX_NUM 12
-#define FIELD_MAX_X     3025
-#define FIELD_MAX_Y     2025
+#define FIELD_MAX_X     3500
+#define FIELD_MAX_Y     0
 #define BALL_RADIUS     22
 #define ROBOT_RADIUS    90
 
@@ -34,10 +34,10 @@
 
 namespace Field
 {
-const double MaxX = 3025;
-const double MinX = -3025;
-const double MaxY = 2025;
-const double MinY = -2025;
+const double MaxX = 3500;
+const double MinX = 0;
+const double MaxY = 0;
+const double MinY = -3500;
 
 const Vector2D upperLeftCorner(MinX + 125, MaxY - 125);
 const Vector2D upperRightCorner(MaxX - 125, MaxY - 125);

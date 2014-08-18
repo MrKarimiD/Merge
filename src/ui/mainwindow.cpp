@@ -415,6 +415,7 @@ void MainWindow::callImageProcessingFunctions(Mat input_mat)
 
     Mat outputFrame;
     imageProcessor->shapeDetection(filteredImage,inputFrame,cropedRect).copyTo(outputFrame);
+    imageProcessor->findColors(crop);
 
     if(ui->out_comboBox->currentText() == "Croped")
     {
@@ -600,7 +601,6 @@ void MainWindow::on_firstThresh_slider_sliderMoved(int position)
 {
     ui->firstThreshOut_label->setText(QString::number(position));
 }
-
 
 void MainWindow::on_secondThresh_slider_sliderMoved(int position)
 {

@@ -10,8 +10,11 @@ Transmitter::Transmitter(QString port, OutputBuffer* buffer, WorldModel *wm, QOb
     qDebug() << "Transmitter Initialization...";
     serialport=new QextSerialPort();
     serialport->setPortName(port);
-    bool check=serialport->open(QIODevice::ReadWrite);
-    qDebug()<<"check:"<<check;
+    if(!serialport->isOpen())
+    {
+        qDebug()<<"Can't Open Serial Port!";
+        return ;
+    }
     serialport->setBaudRate(BAUD115200);
     serialport->setDataBits(DATA_8);
     serialport->setStopBits(STOP_1);

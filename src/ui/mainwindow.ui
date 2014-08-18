@@ -58,7 +58,7 @@
      </font>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="input_tab">
      <attribute name="title">
@@ -732,6 +732,9 @@
       </property>
       <property name="text">
        <string>Geometric Labels</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
       </property>
      </widget>
      <widget class="QCheckBox" name="rotate_checkBox">
@@ -2000,25 +2003,6 @@ Intrrupt</string>
      <string>Stall!</string>
     </property>
    </widget>
-   <zorder>outputLabel</zorder>
-   <zorder>line</zorder>
-   <zorder>tabWidget</zorder>
-   <zorder>stall_button</zorder>
-   <zorder>tl_label</zorder>
-   <zorder>region1_brX_lineEdit</zorder>
-   <zorder>region1_brY_lineEdit</zorder>
-   <zorder>br_label</zorder>
-   <zorder>region1_tlY_lineEdit</zorder>
-   <zorder>brVirgoul_label</zorder>
-   <zorder>region1_tlX_lineEdit</zorder>
-   <zorder>tlVirgoul_label</zorder>
-   <zorder>region1_brX_lineEdit</zorder>
-   <zorder>tl_label</zorder>
-   <zorder>region1_brY_lineEdit</zorder>
-   <zorder>br_label</zorder>
-   <zorder>region1_tlY_lineEdit</zorder>
-   <zorder>brVirgoul_label</zorder>
-   <zorder>region1_tlX_lineEdit</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

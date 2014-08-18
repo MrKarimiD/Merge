@@ -110,7 +110,10 @@ SOURCES +=	main.cpp \
     ai/tactic/tactictechnical.cpp \
     ai/tactic/tacticpenaltykicker.cpp \
     filtersettings.cpp \
-    imageprocessing.cpp
+    imageprocessing.cpp \
+    cameraoutput.cpp \
+    shape.cpp \
+    gameground.cpp
 
 HEADERS  += \
     etc/settings.h \
@@ -206,7 +209,10 @@ HEADERS  += \
     ai/tactic/tactictechnical.h \
     ai/tactic/tacticpenaltykicker.h \
     filtersettings.h \
-    imageprocessing.h
+    imageprocessing.h \
+    cameraoutput.h \
+    shape.h \
+    gameground.h
 
 FORMS    +=	ui/mainwindow.ui
 
