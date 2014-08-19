@@ -24,3 +24,8 @@ void GameGround::setSecondRegion(Rect2D input)
 {
     this->region[1]=input;
 }
+
+void GameGround::setRole(bool isAttacker)
+{
+    this->isAttacker=isAttacker;
+}

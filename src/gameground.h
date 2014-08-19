@@ -13,12 +13,14 @@ public:
     void setEndPoint(Vector2D input);
     void setFirstRegion(Rect2D input);
     void setSecondRegion(Rect2D input);
+    void setRole(bool isAttacker);
 
     CameraOutput output;
 private:
     int mission;
     Rect2D region[2];
     Vector2D endPoint;
+    bool isAttacker;
 
 signals:
 

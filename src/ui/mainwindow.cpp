@@ -10,6 +10,9 @@ MainWindow::MainWindow(QWidget *parent) :
     cameraIsOpened=false;
     mouseButtonClicked=false;
     firstPointSelected=false;
+    imProcDataAvailable=false;
+
+    semaphore=new QSemaphore(1);
 
     QStringList items;
     items<<"1"<<"0";
@@ -413,9 +416,13 @@ void MainWindow::callImageProcessingFunctions(Mat input_mat)
         cropedRect.y = 0;
     }
 
+    semaphore->acquire();
+    imProcDataAvailable=false;
     Mat outputFrame;
     imageProcessor->shapeDetection(filteredImage,inputFrame,cropedRect).copyTo(outputFrame);
-    imageProcessor->findColors(crop);
+    imageProcessor->findColors(inputFrame);
+    imProcDataAvailable=true;
+    semaphore->release();
 
     if(ui->out_comboBox->currentText() == "Croped")
     {
@@ -717,5 +724,61 @@ void MainWindow::on_secondM_rButton_toggled(bool checked)
     else
     {
         disableSecondMission();
+    }
+}
+
+void MainWindow::on_go_button_clicked()
+{
+    semaphore->acquire(1);
+
+    if(imProcDataAvailable)
+    {
+        if(ui->firstM_rButton->isChecked())
+        {
+            imageProcessor->result.setMission(1);
+            imageProcessor->result.setEndPoint(Vector2D(ui->fMendX_lineEdit->text().toInt()
+                                                        ,ui->fMendY_lineEdit->text().toInt()));
+            //imageProcessor->result.setFirstRegion(Rect2D());
+            //imageProcessor->result.setSecondRegion();
+            imageProcessor->sendSignal();
+        }
+        else if(ui->secondM_rButton->isChecked())
+        {
+            imageProcessor->result.setMission(2);
+            imageProcessor->result.setEndPoint(Vector2D(ui->sMendX_lineEdit->text().toInt()
+                                                        ,ui->sMendY_lineEdit->text().toInt()));
+            imageProcessor->sendSignal();
+        }
+        else if(ui->thirsM_rButton->isChecked())
+        {
+            imageProcessor->result.setMission(3);
+            if(ui->attacker_rButton->isChecked())
+                imageProcessor->result.setRole(true);
+            else if(ui->defender_rButton->isChecked())
+                imageProcessor->result.setRole(false);
+
+            imageProcessor->sendSignal();
+        }
+        else
+        {
+            QMessageBox msgBox;
+            msgBox.setText("Select a Mission!");
+            msgBox.setIcon(QMessageBox::Critical);
+            msgBox.exec();
+        }
+    }
+
+    semaphore->release(1);
+}
+
+void MainWindow::on_thirsM_rButton_toggled(bool checked)
+{
+    if(checked)
+    {
+        ui->role_groupBox->setEnabled(true);
+    }
+    else
+    {
+        ui->role_groupBox->setDisabled(true);
     }
 }

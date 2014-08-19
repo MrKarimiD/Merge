@@ -16,6 +16,8 @@
 #include "filtersettings.h"
 #include "QMouseEvent"
 #include "QString"
+#include "QSemaphore"
+#include "QMessageBox"
 
 using namespace cv;
 using namespace std;
@@ -105,13 +107,18 @@ private slots:
 
     void on_secondM_rButton_toggled(bool checked);
 
+    void on_go_button_clicked();
+
+    void on_thirsM_rButton_toggled(bool checked);
+
 private:
     Ui::MainWindow *ui;
     ImageProcessing *imageProcessor;
     QTimer *cam_timer;
     VideoCapture cap;
-    bool cameraIsOpened,mouseButtonClicked,firstPointSelected;
+    bool cameraIsOpened,mouseButtonClicked,firstPointSelected,imProcDataAvailable;
     filterSettings *filterSetting;
+    QSemaphore *semaphore;
 
     void enableCameraSetting();
 

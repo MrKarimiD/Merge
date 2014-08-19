@@ -58,7 +58,7 @@
      </font>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="input_tab">
      <attribute name="title">
@@ -1696,7 +1696,7 @@ Intrrupt</string>
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>350</y>
+        <y>360</y>
         <width>281</width>
         <height>16</height>
        </rect>
@@ -1708,8 +1708,8 @@ Intrrupt</string>
      <widget class="QPushButton" name="go_button">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>370</y>
+        <x>9</x>
+        <y>374</y>
         <width>261</width>
         <height>41</height>
        </rect>
@@ -1977,6 +1977,69 @@ Intrrupt</string>
        </property>
        <property name="text">
         <string>0</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="role_groupBox">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>290</y>
+        <width>151</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="title">
+       <string>Role :</string>
+      </property>
+      <widget class="QRadioButton" name="attacker_rButton">
+       <property name="geometry">
+        <rect>
+         <x>51</x>
+         <y>11</y>
+         <width>117</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Attacker</string>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>13</width>
+         <height>13</height>
+        </size>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="defender_rButton">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>34</y>
+         <width>117</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Defender</string>
        </property>
       </widget>
      </widget>
