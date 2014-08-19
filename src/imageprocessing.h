@@ -66,7 +66,7 @@ private:
     void setLabel(cv::Mat& im, const std::string label, std::vector<cv::Point>& contour,Rect cropedRect);
 
 signals:
-    void gameGroundReady(GameGround out);
+    void gameGroundReady(const GameGround &out);
 
 public slots:
 

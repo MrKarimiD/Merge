@@ -295,19 +295,16 @@ Mat ImageProcessing::returnCropedImage()
 
 void ImageProcessing::findColors(Mat input)
 {
-    imshow("input",input);
     Mat src,thresh;
 //    input.copyTo(src);
 
     cvtColor(input,src,COLOR_BGR2HSV);
-    imshow("src",src);
     inRange(src, Scalar(90,150,150), Scalar(170,255,255), thresh);
-    imshow("HSV",thresh);
 }
 
 void ImageProcessing::sendSignal()
 {
-    //emit gameGroundReady(result);
+    emit gameGroundReady(result);
 }
 
 bool ImageProcessing::checkAspectRatio(vector<Point> contours_poly)
