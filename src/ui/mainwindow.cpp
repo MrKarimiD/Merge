@@ -729,12 +729,15 @@ void MainWindow::on_secondM_rButton_toggled(bool checked)
 
 void MainWindow::on_go_button_clicked()
 {
+    qDebug()<<"1";
     semaphore->acquire(1);
-
+    qDebug()<<"2";
     if(imProcDataAvailable)
     {
+        qDebug()<<"vared if";
         if(ui->firstM_rButton->isChecked())
         {
+            qDebug()<<"4";
             imageProcessor->result.setMission(1);
             imageProcessor->result.setEndPoint(Vector2D(ui->fMendX_lineEdit->text().toInt()
                                                         ,ui->fMendY_lineEdit->text().toInt()));
@@ -744,6 +747,7 @@ void MainWindow::on_go_button_clicked()
         }
         else if(ui->secondM_rButton->isChecked())
         {
+            qDebug()<<"5";
             imageProcessor->result.setMission(2);
             imageProcessor->result.setEndPoint(Vector2D(ui->sMendX_lineEdit->text().toInt()
                                                         ,ui->sMendY_lineEdit->text().toInt()));
@@ -751,6 +755,7 @@ void MainWindow::on_go_button_clicked()
         }
         else if(ui->thirsM_rButton->isChecked())
         {
+            qDebug()<<"6";
             imageProcessor->result.setMission(3);
             if(ui->attacker_rButton->isChecked())
                 imageProcessor->result.setRole(true);
@@ -761,10 +766,11 @@ void MainWindow::on_go_button_clicked()
         }
         else
         {
-            QMessageBox msgBox;
-            msgBox.setText("Select a Mission!");
-            msgBox.setIcon(QMessageBox::Critical);
-            msgBox.exec();
+//            QMessageBox msgBox;
+//            msgBox.setText("Select a Mission!");
+//            //msgBox.setIcon(QMessageBox::Critical);
+//            msgBox.exec();
+            qDebug()<<"Select a Mission!";
         }
     }
 

@@ -12,6 +12,7 @@
 #include "game_state.h"
 #include "ref_protocol.h"
 #include "knowledge.h"
+#include "shape.h"
 
 class WorldModel
 {
@@ -34,6 +35,34 @@ public:
     // 1: kick activation angle
     // 2: kick precision angle
     // 3: prediction sliding factor
+
+    //--------SharifCup 2014---------
+    int mission;
+    Agent *myRobot;
+    Robot *theirRobot;
+        //-------First Mission----------
+        Rect2D region1;
+        Rect2D region2;
+        QList<Shape*> shapes4Region1;
+        QList<Shape*> shapes4Region2;
+        //-----------------------------
+
+        //-------Second Mission--------
+        QList<Segment2D> borders;
+        QList<Shape*> positiveShapes;
+        QList<Shape*> negativeShapes;
+        //-----------------------------
+
+        //-------Third Mission---------
+        QList<Ball> balls;
+        Circle2D circularBorder;
+        Circle2D goal1;
+        Circle2D goal2;
+        //-----------------------------
+
+    Vector2D endPoint;
+    QList<Shape*> obstacles;
+    //----------------------------
 };
 
 #endif // WORLDMODEL_H

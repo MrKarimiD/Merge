@@ -29,3 +29,28 @@ void GameGround::setRole(bool isAttacker)
 {
     this->isAttacker=isAttacker;
 }
+
+int GameGround::getMission()
+{
+    return this->mission;
+}
+
+Vector2D GameGround::getEndPoint()
+{
+    return this->endPoint;
+}
+
+Rect2D GameGround::getRegion1()
+{
+    return this->region[0];
+}
+
+Rect2D GameGround::getRegion2()
+{
+    return this->region[1];
+}
+
+bool GameGround::getRole()
+{
+    return this->isAttacker;
+}

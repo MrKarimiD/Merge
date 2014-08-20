@@ -18,6 +18,7 @@
 #include "QString"
 #include "QSemaphore"
 #include "QMessageBox"
+#include "sslvision.h"
 
 using namespace cv;
 using namespace std;

@@ -14,6 +14,7 @@
 #include <opencv2/nonfree/cuda.hpp>
 #include <gameground.h>
 #include "constants.h"
+#include "QSemaphore"
 
 #define ASPECT_RATIO_TRESH 4
 
@@ -52,7 +53,10 @@ public:
 
     Mat Outputs[5];//0->Crop    1->Adaptive    2->threshold   3->canny     4->final
 
-    GameGround result;
+    static GameGround returnStaticData();
+
+    /*static*/ GameGround result;
+    /*static*/ QSemaphore semaphore;
 
 private:
     vector<Vec3f> finding_circles;
@@ -69,6 +73,7 @@ signals:
     void gameGroundReady(const GameGround &out);
 
 public slots:
+    void test(const GameGround &out);
 
 };
 

@@ -9,6 +9,8 @@ ImageProcessing::ImageProcessing(QObject *parent) :
     drawRotatedRect=false;
     drawBoundries=false;
     filterSetting=new filterSettings();
+
+    connect(this,SIGNAL(gameGroundReady(GameGround)),this,SLOT(test(GameGround)));
 }
 
 Mat ImageProcessing::shapeDetection(Mat input, Mat src, Rect cropedRect)
@@ -259,6 +261,11 @@ void ImageProcessing::setLabel(Mat &im, const string label, std::vector<Point> &
     }
 }
 
+void ImageProcessing::test(const GameGround &out)
+{
+    qDebug()<<"test";
+}
+
 void ImageProcessing::changeOutputSetting(bool con, bool geom, bool bound, bool rotate,bool boundries)
 {
     this->drawContoursBool=con;
@@ -304,7 +311,8 @@ void ImageProcessing::findColors(Mat input)
 
 void ImageProcessing::sendSignal()
 {
-    emit gameGroundReady(result);
+   qDebug()<<"sendSignal();";
+    //emit gameGroundReady(result);
 }
 
 bool ImageProcessing::checkAspectRatio(vector<Point> contours_poly)
@@ -334,11 +342,11 @@ bool ImageProcessing::checkAspectRatioForRotatedRect(RotatedRect input)
 
 void ImageProcessing::prepareDataForOutput(std::vector<Point> &contour, QString type)
 {
-    qDebug()<<"prepareDataForOutput";
+    //qDebug()<<"prepareDataForOutput";
     Point2f center;
     float radius;
     minEnclosingCircle( (Mat)contour, center, radius );
-    qDebug()<<"Radius:"<<radius;
+    //qDebug()<<"Radius:"<<radius;
     Vector2D pos(center.x,center.y);
     result.output.addShape(pos,(double)radius,"Unkown",type);
 }

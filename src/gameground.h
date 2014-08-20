@@ -15,13 +15,19 @@ public:
     void setSecondRegion(Rect2D input);
     void setRole(bool isAttacker);
 
+    int getMission();
+    Vector2D getEndPoint();
+    Rect2D getRegion1();
+    Rect2D getRegion2();
+    bool getRole();
+
     CameraOutput output;
+
 private:
     int mission;
     Rect2D region[2];
     Vector2D endPoint;
     bool isAttacker;
-
 signals:
 
 public slots:

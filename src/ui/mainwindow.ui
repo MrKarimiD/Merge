@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Shape Detection</string>
+   <string>SharifCup 2014</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QLabel" name="outputLabel">

@@ -10,7 +10,9 @@ SSLVision::SSLVision(QString ip, int port, TeamColorType color, TeamSideType sid
     _wm(wm)
 {
     _time.start();
+    imageProcessor = new ImageProcessing();
     connect(this, SIGNAL(newReceivedPacket(QByteArray,QString,int)), this, SLOT(readPendingPacket(QByteArray,QString,int)));
+    //connect(ImageProcessing,SIGNAL(gameGroundReady(GameGround)),this,SLOT(readImageProcessingData(GameGround)));
 
     // Log
     qDebug() << "SSLVision Initialization...";
@@ -42,6 +44,12 @@ void SSLVision::readPendingPacket(QByteArray data, QString ip, int port)
 
     // parse detection frame
     parse(pck);
+}
+
+void SSLVision::readImageProcessingData(const GameGround &input)
+{
+    qDebug()<<"readImageProcessingData";
+    //_wm->mission = input.mission;
 }
 
 void SSLVision::parse(SSL_DetectionFrame &pck)
