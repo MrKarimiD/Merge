@@ -11,8 +11,6 @@
 #include "geom.h"
 #include "util.h"
 #include "worldmodel.h"
-#include "gameground.h"
-#include "imageprocessing.h"
 
 class SSLVision : public SSLReceiver
 {
@@ -21,8 +19,6 @@ class SSLVision : public SSLReceiver
 public:
     explicit SSLVision(QString ip, int port, TeamColorType color, TeamSideType side, CameraConfigType camera, WorldModel *wm, QObject *parent = 0);
     int getFPS(int c);
-
-    ImageProcessing *imageProcessor;
 
 private:
     QTime _time;
@@ -37,7 +33,7 @@ private:
 
 private slots:
     void readPendingPacket(QByteArray data, QString ip, int port);
-    void readImageProcessingData(const GameGround &input);
+    void readPendingPacket2(QByteArray data, QString ip, int port);
 };
 
 

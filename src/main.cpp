@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 
     MainWindow w;
 
-    bool gui = true;
+    bool gui = false;
     if(argc > 1)
         if(strcmp(argv[1], "nogui") == 0)
             gui = false;

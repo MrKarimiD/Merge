@@ -14,10 +14,14 @@ public:
 
 private:
     QUdpSocket _udpsocket;
+    QUdpSocket _udpsocket2;
+
     bool _isStarted;
 
 signals:
     void newReceivedPacket(QByteArray data, QString ip, int port);
+    void newReceivedPacket2(QByteArray data, QString ip, int port);
+
 
 public slots:
     void Start();
@@ -25,6 +29,7 @@ public slots:
 
 private slots:
     void readPendingDatagrams();
+    void readPendingDatagrams2();
 
 };
 
