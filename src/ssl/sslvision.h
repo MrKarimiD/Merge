@@ -11,6 +11,7 @@
 #include "geom.h"
 #include "util.h"
 #include "worldmodel.h"
+#include <Prototype_Messages/GameGround.pb.h>
 
 class SSLVision : public SSLReceiver
 {

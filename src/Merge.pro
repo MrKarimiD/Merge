@@ -113,7 +113,8 @@ SOURCES +=	main.cpp \
     imageprocessing.cpp \
     cameraoutput.cpp \
     shape.cpp \
-    gameground.cpp
+    gameground.cpp \
+    Prototype_Messages/GameGround.pb.cc
 
 HEADERS  += \
     etc/settings.h \
@@ -212,7 +213,8 @@ HEADERS  += \
     imageprocessing.h \
     cameraoutput.h \
     shape.h \
-    gameground.h
+    gameground.h \
+    Prototype_Messages/GameGround.pb.h
 
 FORMS    +=	ui/mainwindow.ui
 

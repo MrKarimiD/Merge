@@ -52,7 +52,6 @@ void SSLReceiver::readPendingDatagrams2()
 {
     while (_udpsocket2.hasPendingDatagrams())
     {
-        qDebug()<<"Read";
         QByteArray datagram;
         datagram.resize(_udpsocket2.pendingDatagramSize());
         QHostAddress sender;

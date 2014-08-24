@@ -32,8 +32,7 @@ int SSLVision::getFPS(int c)
 
 void SSLVision::readPendingPacket(QByteArray data, QString ip, int port)
 {
-   qDebug()<<"readPendingDatagrams();";
-    // check for server ip (& port)
+   // check for server ip (& port)
     if(ip=="" && port==0) return;
 
     // unpack sslvision packet
@@ -49,7 +48,22 @@ void SSLVision::readPendingPacket(QByteArray data, QString ip, int port)
 
 void SSLVision::readPendingPacket2(QByteArray data, QString ip, int port)
 {
-    qDebug()<<"readImageProcessingData";
+    qDebug()<<data.size();
+    outputPacket message;
+    QString s(data);
+    message.ParseFromString(s.toStdString());
+
+    qDebug()<<"Message type:"<<message.type();
+    qDebug()<<"Mission:"<<message.mission();
+    qDebug()<<"endpoint:"<<message.mission2_data().end().x()<<","<<message.mission2_data().end().y();
+    if(message.IsInitialized())
+    {
+
+    }
+    else
+    {
+        qDebug()<<"Invalid";
+    }
 }
 
 void SSLVision::parse(SSL_DetectionFrame &pck)
