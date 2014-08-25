@@ -50,19 +50,21 @@ void SSLVision::readPendingPacket2(QByteArray data, QString ip, int port)
 {
     qDebug()<<data.size();
     outputPacket message;
-    QString s(data);
-    message.ParseFromString(s.toStdString());
+    if(!message.ParseFromArray(data.data(),data.size()))
+    {
+        qDebug()<<"Parse failed";
+    }
 
     qDebug()<<"Message type:"<<message.type();
     qDebug()<<"Mission:"<<message.mission();
-    qDebug()<<"endpoint:"<<message.mission2_data().end().x()<<","<<message.mission2_data().end().y();
+    qDebug()<<"endpoint:"<<message.mission2_end_x()<<","<<message.mission2_end_y();
     if(message.IsInitialized())
     {
-
+        qDebug()<<"Is valid";
     }
     else
     {
-        qDebug()<<"Invalid";
+        qDebug()<<QString::fromStdString(message.InitializationErrorString());
     }
 }
 
