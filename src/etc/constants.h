@@ -16,6 +16,10 @@
 
 #define NUMOFDEFENDERS 3
 
+//Sharifcup 2014
+#define CIRCULARBORDERRADIUS 1750
+#define GOALRADIUS 250
+
 
 // rules constants
 #define ALLOW_NEAR_BALL_RANGE 600

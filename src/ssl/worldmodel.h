@@ -38,6 +38,7 @@ public:
 
     //--------SharifCup 2014---------
     int mission;
+    int numberOfShapes;
     Agent *myRobot;
     Robot *theirRobot;
         //-------First Mission----------
@@ -54,6 +55,7 @@ public:
         //-----------------------------
 
         //-------Third Mission---------
+        bool isAttacker;
         QList<Ball> balls;
         Circle2D circularBorder;
         Circle2D goal1;

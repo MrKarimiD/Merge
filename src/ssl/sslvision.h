@@ -31,6 +31,7 @@ private:
     WorldModel *_wm;
 
     void parse(SSL_DetectionFrame &pck);
+    void parseMyPacket(outputPacket packet);
 
 private slots:
     void readPendingPacket(QByteArray data, QString ip, int port);
