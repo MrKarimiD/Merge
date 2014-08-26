@@ -19,6 +19,7 @@
 #include "outputbuffer.h"
 #include "ai.h"
 #include "mapsearchnode.h"
+#include "sharifvision.h"
 
 class Soccer : public QObject
 {
@@ -32,6 +33,7 @@ public:
 
     WorldModel* wm;
     SSLVision* sslvision;
+    //SharifVision* sharifVision;
 
     SSLRefBox* sslrefbox;
     SSLRefBoxNew* sslrefboxnew;

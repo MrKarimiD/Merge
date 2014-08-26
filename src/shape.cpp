@@ -5,7 +5,7 @@ Shape::Shape(QObject *parent) :
 {
 }
 
-void Shape::set(Vector2D position, double roundedRadios, QString color, QString type)
+void Shape::set(Vector2D position, double roundedRadios, std::string color, std::string type)
 {
     this->position=position;
     this->roundedRadios=roundedRadios;

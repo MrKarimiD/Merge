@@ -109,12 +109,10 @@ SOURCES +=	main.cpp \
     ai/tactic/tacticfixedpos.cpp \
     ai/tactic/tactictechnical.cpp \
     ai/tactic/tacticpenaltykicker.cpp \
-    filtersettings.cpp \
-    imageprocessing.cpp \
-    cameraoutput.cpp \
     shape.cpp \
-    gameground.cpp \
-    Prototype_Messages/GameGround.pb.cc
+    Prototype_Messages/GameGround.pb.cc \
+    ui/renderarea.cpp \
+    ssl/sharifvision.cpp
 
 HEADERS  += \
     etc/settings.h \
@@ -209,12 +207,10 @@ HEADERS  += \
     ai/tactic/tacticfixedpos.h \
     ai/tactic/tactictechnical.h \
     ai/tactic/tacticpenaltykicker.h \
-    filtersettings.h \
-    imageprocessing.h \
-    cameraoutput.h \
     shape.h \
-    gameground.h \
-    Prototype_Messages/GameGround.pb.h
+    Prototype_Messages/GameGround.pb.h \
+    ui/renderarea.h \
+    ssl/sharifvision.h
 
 FORMS    +=	ui/mainwindow.ui
 

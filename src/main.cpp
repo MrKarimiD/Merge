@@ -40,9 +40,9 @@ int main(int argc, char *argv[])
 
     Soccer soccer;
 
-    MainWindow w;
+    MainWindow w(&soccer);
 
-    bool gui = false;
+    bool gui = true;
     if(argc > 1)
         if(strcmp(argv[1], "nogui") == 0)
             gui = false;

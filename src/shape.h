@@ -10,12 +10,12 @@ class Shape : public QObject
     Q_OBJECT
 public:
     explicit Shape(QObject *parent = 0);
-    void set(Vector2D position,double roundedRadios,QString color,QString type);
+    void set(Vector2D position,double roundedRadios,std::string color,std::string type);
 private:
     Vector2D position;
     double roundedRadios;
-    QString color;
-    QString type;
+    std::string color;
+    std::string type;
 
 signals:
 

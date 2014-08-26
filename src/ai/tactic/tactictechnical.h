@@ -10,6 +10,11 @@ public:
     explicit TacticTechnical(WorldModel *worldmodel, QObject *parent = 0);
     virtual RobotCommand getCommand();
 
+    int direction;
+    int corner;
+
+    bool bbl, bbr, btr, btl;
+
 private:
 
 };

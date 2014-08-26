@@ -11,7 +11,6 @@
 #include "geom.h"
 #include "util.h"
 #include "worldmodel.h"
-#include <Prototype_Messages/GameGround.pb.h>
 
 class SSLVision : public SSLReceiver
 {
@@ -31,11 +30,10 @@ private:
     WorldModel *_wm;
 
     void parse(SSL_DetectionFrame &pck);
-    void parseMyPacket(outputPacket packet);
 
 private slots:
     void readPendingPacket(QByteArray data, QString ip, int port);
-    void readPendingPacket2(QByteArray data, QString ip, int port);
+
 };
 
 
