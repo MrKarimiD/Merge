@@ -33,7 +33,7 @@ public:
 
     WorldModel* wm;
     SSLVision* sslvision;
-    //SharifVision* sharifVision;
+    SharifVision* sharifvision;
 
     SSLRefBox* sslrefbox;
     SSLRefBoxNew* sslrefboxnew;

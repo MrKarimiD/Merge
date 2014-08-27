@@ -61,8 +61,8 @@ Soccer::Soccer(QObject *parent) :
     sslvision = new SSLVision(vip, vport, tcolor, tside, tcam, wm);
     sslvision->Start();
 
-//    sharifVision = new SharifVision("239.255.43.21",45454,tcolor, tside, tcam, wm);
-//    sharifVision->Start();
+    sharifvision = new SharifVision("239.255.43.21",45454,wm);
+    sharifvision->Start();
 
     sslrefbox = 0;
     sslrefboxnew = 0;

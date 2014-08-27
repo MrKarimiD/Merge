@@ -3,7 +3,6 @@
 
 #include <QObject>
 #include "geom.h"
-#include "opencv2/imgproc/imgproc.hpp"
 
 class Shape : public QObject
 {

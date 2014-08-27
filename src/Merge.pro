@@ -10,7 +10,39 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = kn2cssl
 TEMPLATE = app
+#CONFIG   += qt warn_on incremental link_prl
+#MAKEFILE_GENERATOR = UNIX
+#TARGET_PLATFORM  = unix
+#QMAKE_INCREMENTAL_STYLE = sublib
 QMAKE_CXXFLAGS += -std=c++11
+
+#CONFIG += debug
+#CONFIG   += release
+#DEFINES += QT_NO_DEBUG_OUTPUT
+
+#QMAKE_CXXFLAGS += --coverage
+#QMAKE_LFLAGS += --coverage
+
+#QMAKE_CFLAGS    -= -O2 -O1
+#QMAKE_CXXFLAGS  -= -O2 -O1
+##QMAKE_CFLAGS  += -O3 -m64
+##QMAKE_LFLAGS  += -O3 -m64
+#QMAKE_CFLAGS  += -O3
+#QMAKE_LFLAGS  += -O3
+#QMAKE_CXXFLAGS += -O3
+
+#QMAKE_CXXFLAGS += -O3
+#QMAKE_CXXFLAGS += -m64
+#QMAKE_CXXFLAGS += -pipe
+#QMAKE_CXXFLAGS += -mmmx -msse -msse2 -msse3 -mssse3 -msse4 -msse4.1 -msse4.2 -mpclmul # -mavx -mavx2 -maes -mfsgsbase -mrdrnd
+#QMAKE_CXXFLAGS += -mfpmath=sse
+#QMAKE_CXXFLAGS += -fargument-noalias-global
+#QMAKE_CXXFLAGS += -fomit-frame-pointer
+##QMAKE_CXXFLAGS += -fwhole-program #fail!
+#QMAKE_CXXFLAGS += -march=native
+#QMAKE_CXXFLAGS += -mtune=native
+
+#load(qt_config)
 
 DESTDIR = ../bin
 OBJECTS_DIR = ../tmp/.obj
@@ -19,7 +51,26 @@ RCC_DIR = ../tmp/.rcc
 UI_DIR = ../tmp/.ui
 
 unix:  LIBS += -lprotobuf
-include(../qextserialport-1.2rc/src/qextserialport.pri)
+
+win32
+{
+    QMAKE_CXXFLAGS += -U__STRICT_ANSI__
+    LIBS += -L$$PWD/../ -lprotobuf
+    INCLUDEPATH += $$PWD/../
+    DEPENDPATH += $$PWD/../
+
+
+    INCLUDEPATH += C:/boost_1_55_0/
+    INCLUDEPATH += C:/boost_1_55_0/boost/
+#   INCLUDEPATH += C:/protobuf-2.5.0/src/
+    INCLUDEPATH += C:/protobuf-2.4.1/src/
+
+    LIBS += -LC:/boost_1_55_0/lib
+#   LIBS += -lboost_serialization-mgw46-mt-d-1_55
+#   LIBS += -lboost_filesystem-mgw46-mt-d-1_55
+#   LIBS += -lboost_system-mgw46-mt-d-1_55
+}
+
 INCLUDEPATH += ssl
 INCLUDEPATH += ssl/sslvision
 INCLUDEPATH += ssl/sslvision/messages
@@ -45,6 +96,7 @@ SOURCES +=	main.cpp \
     ssl/sslvision/messages/messages_robocup_ssl_geometry.pb.cc \
     ssl/sslvision/messages/messages_robocup_ssl_detection.pb.cc \
     ui/mainwindow.cpp \
+    ui/renderarea.cpp \
     util/fpscounter.cpp \
     ai/soccer.cpp \
     ssl/worldmodel.cpp \
@@ -110,9 +162,8 @@ SOURCES +=	main.cpp \
     ai/tactic/tactictechnical.cpp \
     ai/tactic/tacticpenaltykicker.cpp \
     shape.cpp \
-    Prototype_Messages/GameGround.pb.cc \
-    ui/renderarea.cpp \
-    ssl/sharifvision.cpp
+    sharifvision.cpp \
+    Prototype_Messages/GameGround.pb.cc
 
 HEADERS  += \
     etc/settings.h \
@@ -133,6 +184,7 @@ HEADERS  += \
     ssl/sslvision/messages/messages_robocup_ssl_geometry.pb.h \
     ssl/sslvision/messages/messages_robocup_ssl_detection.pb.h \
     ui/mainwindow.h \
+    ui/renderarea.h \
     util/util.h \
     util/fpscounter.h \
     output/wpacket.h \
@@ -208,9 +260,8 @@ HEADERS  += \
     ai/tactic/tactictechnical.h \
     ai/tactic/tacticpenaltykicker.h \
     shape.h \
-    Prototype_Messages/GameGround.pb.h \
-    ui/renderarea.h \
-    ssl/sharifvision.h
+    sharifvision.h \
+    Prototype_Messages/GameGround.pb.h
 
 FORMS    +=	ui/mainwindow.ui
 
@@ -221,20 +272,3 @@ OTHER_FILES += \
 RESOURCES += \
     resources.qrc
 
-LIBS += -lopencv_core \
-        -lopencv_highgui \
-        -lopencv_imgproc \
-        -lopencv_videostab \
-        -lopencv_video \
-        -lopencv_ts \
-        -lopencv_stitching \
-        -lopencv_superres \
-        -lopencv_photo \
-        -lopencv_objdetect \
-        -lopencv_nonfree \
-        -lopencv_ml \
-        -lopencv_legacy \
-        -lopencv_calib3d \
-        -lopencv_flann \
-        -lopencv_contrib \
-        -lopencv_features2d

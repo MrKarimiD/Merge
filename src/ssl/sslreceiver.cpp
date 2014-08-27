@@ -7,7 +7,7 @@ SSLReceiver::SSLReceiver(QString ip, int port, QObject *parent) :
 {
     // udp socket setup
     bool result;
-    result=_udpsocket.bind(QHostAddress::Any, port, QUdpSocket::ReuseAddressHint);
+    result=_udpsocket.bind(QHostAddress::AnyIPv4, port, QUdpSocket::ReuseAddressHint);
     if(!result) qDebug() << _udpsocket.errorString();
     result=_udpsocket.joinMulticastGroup(QHostAddress(ip));
     if(!result) qDebug() << _udpsocket.errorString();

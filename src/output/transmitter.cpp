@@ -2,26 +2,22 @@
 
 Transmitter::Transmitter(QString port, OutputBuffer* buffer, WorldModel *wm, QObject *parent) :
     QObject(parent),
-    serialport(serialport),
+    _serialport(this),
     _timer(this),
     _buffer(buffer),
     _wm(wm)
 {
     qDebug() << "Transmitter Initialization...";
-    serialport=new QextSerialPort();
-    serialport->setPortName(port);
-    if(!serialport->isOpen())
-    {
-        qDebug()<<"Can't Open Serial Port!";
-        return ;
-    }
-    serialport->setBaudRate(BAUD115200);
-    serialport->setDataBits(DATA_8);
-    serialport->setStopBits(STOP_1);
-    serialport->setFlowControl(FLOW_OFF);
-    serialport->setParity(PAR_NONE);
-    qDebug() << serialport->errorString();
-    //connect(&serialport, SIGNAL(readyRead()), this, SLOT(serialRead()));
+
+    _serialport.setPortName(port);
+    _serialport.open(QIODevice::ReadWrite);
+    _serialport.setBaudRate(QSerialPort::Baud115200);
+    _serialport.setDataBits(QSerialPort::Data8);
+    _serialport.setStopBits(QSerialPort::OneStop);
+    _serialport.setFlowControl(QSerialPort::NoFlowControl);
+    _serialport.setParity(QSerialPort::NoParity);
+    qDebug() << _serialport.errorString();
+    //connect(&_serialport, SIGNAL(readyRead()), this, SLOT(serialRead()));
 
     _timer.setInterval(TRANSMITTER_TIMER);
     connect(&_timer,SIGNAL(timeout()), this, SLOT(sendPacket()));
@@ -80,14 +76,14 @@ void Transmitter::sendPacket()
         //cout.flush();
 
         fps.Pulse();
-        serialport->write(pck);
+        _serialport.write(pck);
 
         //        QByteArray debug;
         //        debug.append(QByteArray::fromHex("000102030405060708090a0b0c0d0e0f"));
         //        log+= "SeialData[" + QString::number(debug.size()) + "]: ";
         //        log+= debug.toHex();
         //        qDebug() << log;
-        //        serialport.port->write(debug);
+        //        _serialport.port->write(debug);
     }
     qint64 difference=testTimer.nsecsElapsed();
     //qDebug()<<"send time:"<<QString::number(difference);
@@ -97,10 +93,10 @@ void Transmitter::serialRead()
 {
     QElapsedTimer testTimer;
     testTimer.start();
-    while (serialport->bytesAvailable())
+    while (_serialport.bytesAvailable())
     {
         char data;
-        serialport->getChar(&data);
+        _serialport.getChar(&data);
         //qDebug() << "sr" << QByteArray(&data, 1).toHex();
         if(read_state == PRE_0 && data == (signed char)0xa5)
         {
