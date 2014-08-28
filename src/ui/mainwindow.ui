@@ -29,7 +29,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>KN2C SSL v7.0.0</string>
+   <string>SharifCup 2014</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../resources.qrc">
@@ -1091,7 +1091,7 @@
          </item>
         </layout>
        </widget>
-       <widget class="QWidget" name="">
+       <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
           <x>40</x>

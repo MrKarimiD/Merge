@@ -8,7 +8,7 @@ QT       += core gui network serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = kn2cssl
+TARGET = merge
 TEMPLATE = app
 #CONFIG   += qt warn_on incremental link_prl
 #MAKEFILE_GENERATOR = UNIX
@@ -162,8 +162,9 @@ SOURCES +=	main.cpp \
     ai/tactic/tactictechnical.cpp \
     ai/tactic/tacticpenaltykicker.cpp \
     shape.cpp \
-    sharifvision.cpp \
-    Prototype_Messages/GameGround.pb.cc
+    Prototype_Messages/GameGround.pb.cc \
+    ssl/sharifreceiver.cpp \
+    ssl/sharifvision.cpp
 
 HEADERS  += \
     etc/settings.h \
@@ -260,8 +261,9 @@ HEADERS  += \
     ai/tactic/tactictechnical.h \
     ai/tactic/tacticpenaltykicker.h \
     shape.h \
-    sharifvision.h \
-    Prototype_Messages/GameGround.pb.h
+    Prototype_Messages/GameGround.pb.h \
+    ssl/sharifreceiver.h \
+    ssl/sharifvision.h
 
 FORMS    +=	ui/mainwindow.ui
 
