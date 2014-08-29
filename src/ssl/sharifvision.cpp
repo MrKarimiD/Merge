@@ -17,7 +17,6 @@ void SharifVision::parse(outputPacket &msg)
 {
     if(msg.type() == 0)
     {
-        qDebug()<<"Initial Message Received...";
         _wm->mission = msg.mission();
         _wm->numberOfShapes = msg.numberofshape();
 
@@ -126,7 +125,6 @@ void SharifVision::addToRegion2(Shape input)
 
 void SharifVision::readPendingPacket(QByteArray data, QString ip, int port)
 {
-    qDebug() << "sharif size:"<<data.size();
     outputPacket message;
     if(!message.ParseFromArray(data.data(),data.size()))
     {
