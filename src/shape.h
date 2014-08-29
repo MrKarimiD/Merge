@@ -1,24 +1,18 @@
 #ifndef SHAPE_H
 #define SHAPE_H
 
-#include <QObject>
 #include "geom.h"
 
-class Shape : public QObject
+class Shape
 {
-    Q_OBJECT
+
 public:
-    explicit Shape(QObject *parent = 0);
+    explicit Shape();
     void set(Vector2D position,double roundedRadios,std::string color,std::string type);
-private:
     Vector2D position;
     double roundedRadios;
     std::string color;
     std::string type;
-
-signals:
-
-public slots:
 
 };
 

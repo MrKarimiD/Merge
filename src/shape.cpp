@@ -1,8 +1,8 @@
 #include "shape.h"
 
-Shape::Shape(QObject *parent) :
-    QObject(parent)
+Shape::Shape()
 {
+
 }
 
 void Shape::set(Vector2D position, double roundedRadios, std::string color, std::string type)
@@ -11,4 +11,5 @@ void Shape::set(Vector2D position, double roundedRadios, std::string color, std:
     this->roundedRadios=roundedRadios;
     this->color=color;
     this->type=type;
+
 }

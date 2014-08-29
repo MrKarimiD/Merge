@@ -15,7 +15,11 @@ private:
     QTime _time;
     WorldModel *_wm;
 
+    QList<Shape> shapes;
+
     void parse(outputPacket &msg);
+    void addToRegion1(Shape input);
+    void addToRegion2(Shape input);
 
 private slots:
     void readPendingPacket(QByteArray data, QString ip, int port);

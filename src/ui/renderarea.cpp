@@ -62,6 +62,13 @@ void RenderArea::paintEvent(QPaintEvent *)
         painter.setBrush(*brush_ball);
         painter.drawEllipse(QPoint(_sc->wm->ball.pos.loc.x/WORLD_SCALE,-_sc->wm->ball.pos.loc.y/WORLD_SCALE),BALL_R,BALL_R);
     }
+
+//    for(int i=0;i<_sc->wm->shapes4Region1.size();i++)
+//    {
+//        qDebug()<<"Shapse "<<i<<"seen at:"<<_sc->wm->shapes4Region1.at(i)->X()<<","<<_sc->wm->shapes4Region1.at(i)->Y();
+//        painter.setPen(QColor::fromRgb(200,100,199));
+//        painter.drawEllipse(QPoint(_sc->wm->shapes4Region1.at(i)->X()/WORLD_SCALE,-_sc->wm->shapes4Region1.at(i)->Y()/WORLD_SCALE),BALL_R,BALL_R);
+//    }
     // TEST
 
     //painter.drawChord(100-ROBOT_R,100-ROBOT_R,ROBOT_D,ROBOT_D,ANGLE_TO_CHORD(0));

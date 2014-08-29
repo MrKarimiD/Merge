@@ -44,14 +44,14 @@ public:
         //-------First Mission----------
         Rect2D region1;
         Rect2D region2;
-        QList<Shape*> shapes4Region1;
-        QList<Shape*> shapes4Region2;
+        QList<Shape> shapes4Region1;
+        QList<Shape> shapes4Region2;
         //-----------------------------
 
         //-------Second Mission--------
         QList<Segment2D> borders;
-        QList<Shape*> positiveShapes;
-        QList<Shape*> negativeShapes;
+        QList<Shape> positiveShapes;
+        QList<Shape> negativeShapes;
         //-----------------------------
 
         //-------Third Mission---------
@@ -63,8 +63,10 @@ public:
         //-----------------------------
 
     Vector2D endPoint;
-    QList<Shape*> obstacles;
+    QList<Shape> obstacles;
     //----------------------------
+
+    void clean();
 };
 
 #endif // WORLDMODEL_H

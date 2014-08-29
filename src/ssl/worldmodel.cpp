@@ -22,3 +22,13 @@ WorldModel::WorldModel(OutputBuffer *outputBuffer)
     for(int i=0; i<10; i++)
         var[i] = 0;
 }
+
+void WorldModel::clean()
+{
+    shapes4Region1.clear();
+    shapes4Region2.clear();
+    positiveShapes.clear();
+    negativeShapes.clear();
+    balls.clear();
+    obstacles.clear();
+}
