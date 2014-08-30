@@ -18,4 +18,10 @@
 #include "tactic/tactictechnical.h"
 #include "tactic/tacticpenaltykicker.h"
 
+//Sharif Tactics
+#include "tactic/tactictransferobject.h"
+#include "tactic/tacticconfront.h"
+#include "tactic/tacticpush2goal.h"
+#include "tactic/tacticsharifdefence.h"
+
 #endif // TACTICS_H

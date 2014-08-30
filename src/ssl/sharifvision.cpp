@@ -90,7 +90,7 @@ void SharifVision::parse(outputPacket &msg)
             {
                 addToRegion1(shapes.at(i));
             }
-
+        qDebug()<<"sharif vis:"<<_wm->shapes4Region1.size();
         }
         else if(msg.mission() == 2)
         {

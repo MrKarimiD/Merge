@@ -29,7 +29,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>SharifCup 2014</string>
+   <string>KN2C SSL v7.0.0</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../resources.qrc">
@@ -40,7 +40,7 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>5</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tabHome">
        <attribute name="title">

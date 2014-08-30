@@ -168,5 +168,11 @@ QList<Circle2D> MapSearchNode::getObsCircle()
         result.append(c);
     }
 
+    for(int i=0; i<wm->shapes4Region1.size(); i++)
+    {
+        Circle2D c(wm->shapes4Region1.at(i).position, wm->shapes4Region1.at(i).roundedRadios);
+        result.append(c);
+    }
+
     return result;
 }

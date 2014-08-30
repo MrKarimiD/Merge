@@ -27,6 +27,15 @@ QByteArray WPacket::GetPacket()
         _rdata[i].M2 = qToBigEndian<unsigned short int>(_rdata[i].M2);
         _rdata[i].M3 = qToBigEndian<unsigned short int>(_rdata[i].M3);
         rd.append((const char*)&(_rdata[i]), 11); //sizeof(RobotData);
+
+
+//        if(i == 3)
+//        {
+//            qDebug()<<"rdata[i].M0 : "<<_rdata[i].M0;
+//            qDebug()<<"rdata[i].M1 : "<<_rdata[i].M1;
+//            qDebug()<<"rdata[i].M2 : "<<_rdata[i].M2;
+//            qDebug()<<"rdata[i].M3 : "<<_rdata[i].M3;
+//        }
     }
 
     unsigned char checksum=0;

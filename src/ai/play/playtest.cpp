@@ -12,7 +12,7 @@ PlayTest::PlayTest(WorldModel *worldmodel, QObject *parent) :
 
 int PlayTest::enterCondition()
 {
-    return 1000000;
+    return 0;
 }
 
 void PlayTest::execute()

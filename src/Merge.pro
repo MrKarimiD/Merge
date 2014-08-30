@@ -164,7 +164,14 @@ SOURCES +=	main.cpp \
     shape.cpp \
     Prototype_Messages/GameGround.pb.cc \
     ssl/sharifreceiver.cpp \
-    ssl/sharifvision.cpp
+    ssl/sharifvision.cpp \
+    ai/tactic/tactictransferobject.cpp \
+    ai/tactic/tacticpush2goal.cpp \
+    ai/tactic/tacticconfront.cpp \
+    ai/play/playmission1.cpp \
+    ai/play/playmission2.cpp \
+    ai/play/playmission3.cpp \
+    ai/tactic/tacticsharifdefence.cpp
 
 HEADERS  += \
     etc/settings.h \
@@ -263,7 +270,14 @@ HEADERS  += \
     shape.h \
     Prototype_Messages/GameGround.pb.h \
     ssl/sharifreceiver.h \
-    ssl/sharifvision.h
+    ssl/sharifvision.h \
+    ai/tactic/tactictransferobject.h \
+    ai/tactic/tacticpush2goal.h \
+    ai/tactic/tacticconfront.h \
+    ai/play/playmission1.h \
+    ai/play/playmission2.h \
+    ai/play/playmission3.h \
+    ai/tactic/tacticsharifdefence.h
 
 FORMS    +=	ui/mainwindow.ui
 
